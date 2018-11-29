@@ -19,6 +19,13 @@
 #include <gazebo/sensors/ImuSensor.hh>
 #include <gazebo/physics/World.hh>
 
+#ifdef WIN32
+static int rand_r(unsigned int * /*seed*/)
+{
+  return ::rand();
+}
+#endif
+
 GZ_REGISTER_SENSOR_PLUGIN(gazebo::GazeboRosImuSensor)
 
 gazebo::GazeboRosImuSensor::GazeboRosImuSensor(): SensorPlugin()

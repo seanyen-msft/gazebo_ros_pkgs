@@ -22,6 +22,13 @@
 
 #include <gazebo_plugins/gazebo_ros_imu.h>
 
+#ifdef WIN32
+static int rand_r(unsigned int * /*seed*/)
+{
+  return ::rand();
+}
+#endif
+
 namespace gazebo
 {
 // Register this plugin with the simulator

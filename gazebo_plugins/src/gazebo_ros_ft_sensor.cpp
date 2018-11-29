@@ -23,6 +23,13 @@
 #include <gazebo_plugins/gazebo_ros_ft_sensor.h>
 #include <tf/tf.h>
 
+#ifdef WIN32
+static int rand_r(unsigned int * /*seed*/)
+{
+  return ::rand();
+}
+#endif
+
 namespace gazebo
 {
 GZ_REGISTER_MODEL_PLUGIN(GazeboRosFT);

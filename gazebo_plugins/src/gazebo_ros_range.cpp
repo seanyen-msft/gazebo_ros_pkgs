@@ -310,6 +310,13 @@ void GazeboRosRange::PutRangeData(common::Time &_updateTime)
   }
 }
 
+#ifdef WIN32
+static int rand_r(unsigned int * /*seed*/)
+{
+  return ::rand();
+}
+#endif
+
 //////////////////////////////////////////////////////////////////////////////
 // Utility for adding noise
 double GazeboRosRange::GaussianKernel(double mu, double sigma)

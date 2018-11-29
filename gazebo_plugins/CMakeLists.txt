@@ -314,8 +314,13 @@ target_link_libraries(gazebo_ros_template ${catkin_LIBRARIES} ${Boost_LIBRARIES}
 
 install(TARGETS
   hokuyo_node
-  vision_reconfigure
   camera_synchronizer
+  pub_joint_trajectory_test
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  )
+
+install(TARGETS
+  vision_reconfigure
   gazebo_ros_utils
   gazebo_ros_camera_utils
   gazebo_ros_camera
@@ -346,24 +351,20 @@ install(TARGETS
   gazebo_ros_video
   gazebo_ros_planar_move
   gazebo_ros_vacuum_gripper
-  pub_joint_trajectory_test
   gazebo_ros_gpu_laser
   gazebo_ros_range
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   )
 
 if (NOT GAZEBO_VERSION VERSION_LESS 6.0)
   install(TARGETS gazebo_ros_elevator
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     )
 endif()
 
 if (NOT GAZEBO_VERSION VERSION_LESS 7.3)
   install(TARGETS gazebo_ros_harness
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+    DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     )
 endif()
 

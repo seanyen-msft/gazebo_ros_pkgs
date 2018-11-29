@@ -21,6 +21,13 @@
 
 #include "gazebo_plugins/gazebo_ros_p3d.h"
 
+#ifdef WIN32
+static int rand_r(unsigned int * /*seed*/)
+{
+  return ::rand();
+}
+#endif
+
 namespace gazebo
 {
 GZ_REGISTER_MODEL_PLUGIN(GazeboRosP3D);

@@ -69,7 +69,7 @@ target_link_libraries(default_robot_hw_sim ${catkin_LIBRARIES})
 
 ## Install
 install(TARGETS ${PROJECT_NAME} default_robot_hw_sim
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/
